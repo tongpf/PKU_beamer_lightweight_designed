@@ -1,0 +1,202 @@
+\documentclass[10pt,hyperref={colorlinks,citecolor=blue,urlcolor=peking_blue,linkcolor=}]{beamer}
+\usepackage{PekingU}
+\usefonttheme{serif}
+\usepackage{lipsum}
+%\usepackage[scheme = plain]{ctex}
+\usepackage{hyperref}
+\usepackage{charter} % Nicer fonts
+% other packages
+\usepackage{latexsym,amsmath,xcolor,multicol,booktabs,calligra}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{natbib}
+\usepackage{wrapfig}
+\usepackage{amsfonts} 
+\usepackage{ragged2e}
+\usepackage{parskip}
+
+\apptocmd{\frame}{}{\justifying}{} % Allow optional arguments after frame.
+
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+\theoremstyle{plain}
+\newtheorem{axiom}{Axiom}
+\newtheorem{claim}[axiom]{Claim}
+\newtheorem{assumption}{Assumption}
+\newtheorem{remark}{Remark}
+\newtheorem{proposition}{Proposition}
+\setbeamertemplate{theorems}[numbered] 
+
+
+% change for your title page information
+\author[Pei Feng Tong]{Pei Feng Tong}
+\title{Peking University Beamer Template}
+\subtitle{lightweight designed}
+\institute{Guanghua School of Management, Peking University}
+\date{
+2024/01/15}
+
+\newif\ifplacelogo % create a new conditional
+\placelogotrue % set it to true
+\logo{
+\ifplacelogo
+\includegraphics[width=2cm]{../Figures/PKU-China-logo.png}
+\fi
+}
+% official colors match with the PKU red
+\def\cmd#1{\texttt{\color{red}\footnotesize $\backslash$#1}}
+\def\env#1{\texttt{\color{blue}\footnotesize #1}}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\definecolor{halfgray}{gray}{0.55}
+
+\begin{document}
+{
+\setbeamertemplate{logo}{}
+\begin{frame}
+    \titlepage
+    \begin{figure}[htpb]
+        \begin{center}
+            \includegraphics[width=0.2\linewidth]{Figures/PKUlogo.png}
+        \end{center}
+    \end{figure}
+\end{frame}
+}
+
+\placelogofalse
+
+\section{Introduction}
+
+\begin{frame}{How to cite in your introduction?}
+\lipsum[1][1-3]
+
+\begin{enumerate}
+    \item \lipsum[1][1-2] \citep{langley00}
+    \item \citet {mitchell80} \lipsum[1][3-4] 
+    \item \lipsum[1][5-6] \citep{kearns89}
+\end{enumerate}
+
+important contents are \textcolor{red}{\bf bold red} \citep{MachineLearningI}. 
+\lipsum[1][1-4]
+\end{frame}
+
+\begin{frame}{Wrapping text around figures}
+    \begin{wrapfigure}{r}{0.4\textwidth}
+      \begin{center}
+        \includegraphics[width=0.4\textwidth]{Figures/fig1.png}
+      \end{center}
+      \caption{\lipsum[1][1-1]}
+    \end{wrapfigure}
+    
+    \lipsum[1][1-4]
+
+    \lipsum[1][5-10]
+
+    \lipsum[2][1-3]
+\end{frame}
+
+\begin{frame}{Mathematical expressions}
+    \lipsum[3][1-5]
+
+    \lipsum[4][1-3]
+    \begin{equation}\label{eq:1}
+        \bm Y = \bm G \bm X + \bm E,
+    \end{equation}
+    where 
+    \begin{itemize}
+        \item $\bm G\in \mathbb{R}^{N\times SO}$ is a known gain matrix, 
+        \item $\bm E$ is the IID Gaussian error with $e_{ij}\sim\mathcal{N}(0,\sigma^2)$, 
+        \item \lipsum[2][1]
+    \end{itemize}
+\end{frame}
+
+\section{Motivations}
+
+\begin{frame}{Add block in text}
+\lipsum[3][1-3]
+
+\lipsum[3][1-2]
+
+\lipsum[3][1-4]
+
+\begin{block}{What is Few-Shot Learning?}
+    \lipsum[3][1-4]
+\end{block}
+\end{frame}
+
+\section{Methods}
+
+\begin{frame}{Definition, Proposition and Theorem}
+
+\begin{definition}[some explanations]
+\lipsum[3][1-4]
+\end{definition}
+
+\begin{proposition}\label{prop:1}
+\lipsum[3][5-8]
+\end{proposition}
+
+\begin{theorem}\label{theorem:generalization bound}
+\lipsum[3][9-12]
+\end{theorem}
+    
+\end{frame}
+
+\section{Simulation}
+
+\begin{frame}{Tables}
+    \begin{table}
+        \caption{Units for Magnetic Properties}
+        \label{table}
+        \setlength{\tabcolsep}{3pt}
+        \begin{tabular}{p{40pt}p{100pt}p{140pt}}
+        \hline
+        Symbol& 
+        Quantity& 
+        Conversion from Gaussian and \par CGS EMU to SI $^{\mathrm{a}}$ \\
+        \hline
+        $\Phi $& 
+        magnetic flux& 
+        1 Mx $\to  10^{-8}$ Wb $= 10^{-8}$ V$\cdot $s \\
+        $B$& 
+        magnetic flux density, \par magnetic induction& 
+        1 G $\to  10^{-4}$ T $= 10^{-4}$ Wb/m$^{2}$ \\
+        $H$& 
+        magnetic field strength& 
+        1 Oe $\to  10^{3}/(4\pi )$ A/m \\
+        $m$& 
+        magnetic moment& 
+        1 erg/G $=$ 1 emu \par $\to 10^{-3}$ A$\cdot $m$^{2} = 10^{-3}$ J/T \\
+        $M$& 
+        magnetization& 
+        1 erg/(G$\cdot $cm$^{3}) =$ 1 emu/cm$^{3}$ \par $\to 10^{3}$ A/m \\
+        4$\pi M$& 
+        magnetization& 
+        1 G $\to  10^{3}/(4\pi )$ A/m \\
+        $\sigma $& 
+        specific magnetization& 
+        1 erg/(G$\cdot $g) $=$ 1 emu/g $\to $ 1 A$\cdot $m$^{2}$/kg \\
+        \hline
+        \multicolumn{3}{p{280pt}}{Vertical lines are optional in tables. Statements that serve as captions for 
+        the entire table do not need footnote letters. }
+        \end{tabular}
+        \label{tab1}
+    \end{table}
+\end{frame}
+
+
+\begin{frame}{References}%[allowframebreaks] if too many references
+    \renewcommand*{\bibfont}{\footnotesize}
+    \bibliography{ref}
+    \bibliographystyle{apalike}
+    % \tiny\bibliographystyle{alpha}
+\end{frame}
+
+\begin{frame}
+    \begin{center}
+        {\Huge\calligra Thanks!}
+    \end{center}
+\end{frame}
+
+\end{document}

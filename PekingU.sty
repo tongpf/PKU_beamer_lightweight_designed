@@ -1,0 +1,128 @@
+\mode<presentation>
+
+\newif\ifbeamer@secheader
+\beamer@secheaderfalse
+
+\ProcessOptionsBeamer
+
+\useoutertheme[subsection=false]{smoothbars}
+\makeatletter
+\newcommand{\frameofframes}{/}
+\newcommand{\setframeofframes}[1]{\renewcommand{\frameofframes}{#1}}
+\setbeamertemplate{footline} 
+  {%
+    \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}%
+      {\usebeamerfont{author in head/foot}\insertshortauthor}%
+      \hfill%
+      {\usebeamerfont{title in head/foot}\insertshorttitle}%
+      \hfill%
+      {\usebeamerfont{frame number}\usebeamercolor[fg]{frame number}\insertframenumber~\frameofframes~\inserttotalframenumber}
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+    \end{beamercolorbox}
+  }
+\makeatother
+
+\useinnertheme{circles}
+%\useinnertheme{rectangles}
+%\useoutertheme{default}
+%\useinnertheme[shadow=true]{rounded}
+
+\xdefinecolor{peking}{cmyk}{0,1,1,0.45}%{rgb}{0.543,0.0,0.0703} %{cmyk}{0,100,100,45}%{rgb}{0.5,0.0,0.0}  %RGB#820010
+\xdefinecolor{peking_gold}{cmyk}{0,0.35,0.75,0.05}
+\xdefinecolor{peking_blue}{cmyk}{0.6,0.35,0.0,0.4}
+\xdefinecolor{peking_darkblue}{cmyk}{1.0,0.6,0.0,0.5}
+\xdefinecolor{peking_gray}{cmyk}{0.0,0.0,0.08,0.55}
+\xdefinecolor{peking_dirt}{cmyk}{0.0,0.2,0.35,0.3}
+\xdefinecolor{peking_orange}{cmyk}{0.0,0.7,1.0,0.0}
+\xdefinecolor{peking_green}{cmyk}{0.2,0.0,1.0,0.15}
+\xdefinecolor{peking_darkgreen}{cmyk}{0.6,0.5,1.0,0.45}
+\xdefinecolor{pantone_gold}{RGB}{135,103,79}
+\xdefinecolor{pantone_silver}{RGB}{138,141,143}
+\xdefinecolor{WM_Gold}{cmyk}{0.09,0.29,0.66,0.24}
+\setbeamercolor{footline}{bg=peking}
+%\setbeamercolor{frametitle}{bg=white!70!pantone_gold,fg=peking}
+\setbeamercolor{frametitle}{bg=white,fg=peking}
+\setbeamercolor{title}{bg=peking}
+%\setbeamerfont{frametitle}{size=\large}
+\setbeamerfont{frametitle}{series=\bfseries,size=\large}%,parent=structure}
+\setbeamerfont{footline}{series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{caption}[numbered]
+
+\beamertemplateshadingbackground{white!5}{white}
+
+\setbeamercolor{palette primary}{use=structure,fg=white,bg=structure.fg}
+\setbeamercolor{palette secondary}{use=structure,fg=white,bg=structure.fg!95!black}%{use=structure,fg=white,bg=structure.fg!90!black}
+\setbeamercolor{palette tertiary}{use=structure,fg=white,bg=structure.fg!90!black}
+\setbeamercolor{palette quaternary}{fg=white,bg=structure.fg!85!black}
+%\setbeamercolor*{sidebar}{use=structure,bg=structure.fg}
+\setbeamercolor{titlelike}{parent=palette primary}
+
+%% try
+\setbeamercolor{block title}{bg=peking_blue,fg=white}
+\setbeamercolor{block body}{bg=peking_blue!10}
+
+\BeforeBeginEnvironment{definition}{%
+    \setbeamercolor{block title}{bg=peking_blue,fg=white}
+    \setbeamercolor{block body}{bg=peking_blue!10}
+}
+\AfterEndEnvironment{definition}{
+ \setbeamercolor{block title}{bg=peking_blue,fg=white}
+ \setbeamercolor{block body}{bg=peking_blue!10}
+}
+
+\BeforeBeginEnvironment{theorem}{%
+    \setbeamercolor{block title}{bg=peking_orange,fg=white}
+    \setbeamercolor{block body}{bg=peking_orange!10}
+}
+\AfterEndEnvironment{theorem}{
+ \setbeamercolor{block title}{bg=peking_blue,fg=white}
+ \setbeamercolor{block body}{bg=peking_blue!10}
+}
+
+\BeforeBeginEnvironment{proposition}{%
+    \setbeamercolor{block title}{bg=peking_orange,fg=white}
+    \setbeamercolor{block body}{bg=peking_orange!10}
+}
+\AfterEndEnvironment{proposition}{
+ \setbeamercolor{block title}{bg=peking_blue,fg=white}
+ \setbeamercolor{block body}{bg=peking_blue!10}
+}
+
+\setbeamercolor*{block title example}{use={normal text,example text},bg=white!70!pantone_gold,fg=peking}
+\setbeamercolor{fine separation line}{}
+\setbeamercolor{item projected}{fg=white}
+\setbeamercolor{palette sidebar primary}{use=normal text,fg=normal text.fg}
+\setbeamercolor{palette sidebar quaternary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar secondary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar tertiary}{use=normal text,fg=normal text.fg}
+%\setbeamercolor{palette sidebar quaternary}{fg=white}
+\setbeamercolor{section in sidebar}{fg=brown}
+\setbeamercolor{section in sidebar shaded}{fg=grey}
+\setbeamercolor{separation line}{}
+\setbeamercolor{sidebar}{bg=peking}
+\setbeamercolor{sidebar}{parent=palette primary}
+\setbeamercolor{structure}{fg=peking}
+\setbeamercolor{subsection in sidebar}{fg=brown}
+\setbeamercolor{subsection in sidebar shaded}{fg=grey}
+\AtBeginSection[]{
+	\begin{frame}
+		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide,subsubsectionstyle=hide]
+	\end{frame}
+}
+\setbeamercolor{postgreen}{fg=black,bg=example text.fg!75!black!10!bg}
+\setbeamercolor{postred}{fg=black,bg=white!70!pantone_gold}
+\setbeamercolor{postblue}{fg=black,bg=peking_blue!10}
+%\AtBeginSubsection[]{
+%	\begin{frame}
+%		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide,subsubsectionstyle=hide]
+%	\end{frame}
+%}
+
+\mode
+<all>
